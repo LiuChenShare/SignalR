@@ -3,11 +3,12 @@
     ViewBag.Title = "广播聊天室";
 }
 
-<h2>Chat</h2>
+<h2 id="user">Chat</h2>
 <div class="container">
     <input type="text" id="message" />
     <input type="button" id="sendmessage" value="Send" />
     <input type="button" id="sendmessage2" value="发送100次" />
+    <input type="button" id="sendmessage3" value="自动发送" />
     <input type="hidden" id="displayname" />
     <ul id="discussion"></ul>
 </div>
@@ -31,6 +32,7 @@
             };
             // Get the user name and store it to prepend to messages.
             $('#displayname').val(prompt('请输入你的昵称:', ''));
+            user.innerText = $('#displayname').val();
             //拿到全部的消息
             $.ajax({
                 url: "/Home/GetOldMessage",
@@ -62,6 +64,11 @@
                         //sleep(100);
                     }
                 });
+                $('#sendmessage3').click(function () {
+                    setInterval(function () {
+                        chat.server.send($('#displayname').val(), "大家好，我是 " + $('#displayname').val());
+                    }, "1000");
+                });
             });
         });
         // This optional function html-encodes messages for display in the page.
@@ -79,5 +86,6 @@
                     return;
             }
         }
+
     </script>
 }

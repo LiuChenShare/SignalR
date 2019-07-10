@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat-MVC", "SignalRChat-MVC\SignalRChat-MVC.csproj", "{2D940F93-40DA-4B1B-9C98-B545F4BD282B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalR+JS", "SignalR+JS", "{C014459A-6FB0-4085-A06C-F9DBD9DE25C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalR+.NET", "SignalR+.NET", "{0FE51DBA-D654-4800-A289-D970E3F08964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_ConsoleApp_Core", "SignalR_ConsoleApp_Core\SignalR_ConsoleApp_Core.csproj", "{D0FD8805-8C80-469C-9D9B-92B661B2E0EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +27,18 @@ Global
 		{2D940F93-40DA-4B1B-9C98-B545F4BD282B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D940F93-40DA-4B1B-9C98-B545F4BD282B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D940F93-40DA-4B1B-9C98-B545F4BD282B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FD8805-8C80-469C-9D9B-92B661B2E0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FD8805-8C80-469C-9D9B-92B661B2E0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FD8805-8C80-469C-9D9B-92B661B2E0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FD8805-8C80-469C-9D9B-92B661B2E0EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F071A2E9-185F-4E49-A10D-210B41E7C824} = {C014459A-6FB0-4085-A06C-F9DBD9DE25C2}
+		{2D940F93-40DA-4B1B-9C98-B545F4BD282B} = {C014459A-6FB0-4085-A06C-F9DBD9DE25C2}
+		{D0FD8805-8C80-469C-9D9B-92B661B2E0EC} = {0FE51DBA-D654-4800-A289-D970E3F08964}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8FE4E364-6298-493C-9EE4-9AE5BBDB7058}
