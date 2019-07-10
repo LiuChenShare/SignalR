@@ -17,7 +17,14 @@ namespace SignalRChat_MVC
         public void Send(string name, string message)
         {
             // Call the addNewMessageToPage method to update clients.
-            Clients.All.addNewMessageToPage(string.Format("{0} [{1}] ",name,DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss"))), message);
+            //Clients.All.addNewMessageToPage(string.Format("{0} [{1}] ",name,DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss"))), message);
+
+            Models.ChatMessageModel model = new Models.ChatMessageModel();
+            model.Time = DateTime.Now;
+            model.Name = name;
+            model.Message = string.Format("[{0}] {1} ", DateTime.Now.ToString(("HH:mm:ss")), message);
+            Datas.ChatMessageData.Instance.EnqueueTask(model);
+            Clients.All.addNewMessageToPage(model.Name, model.Message);
         }
         
         public void UpdateModel(ShapeModel clientModel)

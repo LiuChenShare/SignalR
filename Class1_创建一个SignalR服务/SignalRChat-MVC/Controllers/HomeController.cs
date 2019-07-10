@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SignalRChat_MVC.Datas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,6 +32,24 @@ namespace SignalRChat_MVC.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult GetResult()
+        {
+            var path = Server.MapPath("\\config.json");
+            return Json(new { Success = true, Messages = "Success", Data = path });
+        }
+
+        [HttpGet]
+        public JsonResult GetOldMessage()
+        {
+            var result = ChatMessageData.Instance.GetList();
+            return Json(new { Success = true, Messages = "Success", Data = result },JsonRequestBehavior.AllowGet);
         }
     }
 }

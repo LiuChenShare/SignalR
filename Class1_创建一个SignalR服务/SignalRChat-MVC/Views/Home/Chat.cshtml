@@ -1,13 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "Chat";
+    ViewBag.Title = "广播聊天室";
 }
 
 <h2>Chat</h2>
 <div class="container">
     <input type="text" id="message" />
     <input type="button" id="sendmessage" value="Send" />
-    <input type="button" id="sendmessage2" value="发送600次" />
+    <input type="button" id="sendmessage2" value="发送100次" />
     <input type="hidden" id="displayname" />
     <ul id="discussion"></ul>
 </div>
@@ -30,7 +30,22 @@
                     + '</strong>: ' + htmlEncode(message) + '</li>');
             };
             // Get the user name and store it to prepend to messages.
-            $('#displayname').val(prompt('Enter your name:', ''));
+            $('#displayname').val(prompt('请输入你的昵称:', ''));
+            //拿到全部的消息
+            $.ajax({
+                url: "/Home/GetOldMessage",
+                async: false,
+                //context: document.body,
+                success: function (data) {
+                    if (data.Success) {
+                        var num = data.Data.length;
+                        for (var i = 0; i < num; i++) {
+                            $('#discussion').prepend('<li><strong>' + htmlEncode(data.Data[i].Name)
+                                + '</strong>: ' + htmlEncode(data.Data[i].Message) + '</li>');
+                        }
+                    }
+                }
+            });
             // Set initial focus to message input box.
             $('#message').focus();
             // Start the connection.
@@ -42,9 +57,9 @@
                     $('#message').val('').focus();
                 });
                 $('#sendmessage2').click(function () {
-                    for (var i = 0; i < 600; i++) {
+                    for (var i = 0; i < 100; i++) {
                         chat.server.send($('#displayname').val(), $('#message').val());
-                        sleep(100);
+                        //sleep(100);
                     }
                 });
             });
