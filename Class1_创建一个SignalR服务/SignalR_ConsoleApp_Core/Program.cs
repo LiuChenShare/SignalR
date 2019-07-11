@@ -31,7 +31,7 @@ namespace SignalR_ConsoleApp_Core
         {
             connection.On<string, string>("ReceiveMessage", (user, message) =>
             {
-                Console.WriteLine($"{user}: {message}");
+                ConsoleHelper.WriteInfoLine($"{user}: {message}");
             });
 
             await connection.StartAsync();

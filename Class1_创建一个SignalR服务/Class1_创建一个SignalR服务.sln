@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalR+.NET", "SignalR+.NE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_ConsoleApp_Core", "SignalR_ConsoleApp_Core\SignalR_ConsoleApp_Core.csproj", "{D0FD8805-8C80-469C-9D9B-92B661B2E0EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat_WebApp_Core", "SignalRChat_WebApp_Core\SignalRChat_WebApp_Core.csproj", "{BC844339-12C1-4998-90E4-1EDA3E204918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat_Core", "SignalRChat_Core\SignalRChat_Core.csproj", "{5500A7C0-7C91-4616-9DFD-A91E4427107F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{D0FD8805-8C80-469C-9D9B-92B661B2E0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0FD8805-8C80-469C-9D9B-92B661B2E0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0FD8805-8C80-469C-9D9B-92B661B2E0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC844339-12C1-4998-90E4-1EDA3E204918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC844339-12C1-4998-90E4-1EDA3E204918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC844339-12C1-4998-90E4-1EDA3E204918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC844339-12C1-4998-90E4-1EDA3E204918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5500A7C0-7C91-4616-9DFD-A91E4427107F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5500A7C0-7C91-4616-9DFD-A91E4427107F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5500A7C0-7C91-4616-9DFD-A91E4427107F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5500A7C0-7C91-4616-9DFD-A91E4427107F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,8 +51,11 @@ Global
 		{F071A2E9-185F-4E49-A10D-210B41E7C824} = {C014459A-6FB0-4085-A06C-F9DBD9DE25C2}
 		{2D940F93-40DA-4B1B-9C98-B545F4BD282B} = {C014459A-6FB0-4085-A06C-F9DBD9DE25C2}
 		{D0FD8805-8C80-469C-9D9B-92B661B2E0EC} = {0FE51DBA-D654-4800-A289-D970E3F08964}
+		{BC844339-12C1-4998-90E4-1EDA3E204918} = {0FE51DBA-D654-4800-A289-D970E3F08964}
+		{5500A7C0-7C91-4616-9DFD-A91E4427107F} = {0FE51DBA-D654-4800-A289-D970E3F08964}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
 		SolutionGuid = {8FE4E364-6298-493C-9EE4-9AE5BBDB7058}
 	EndGlobalSection
 EndGlobal

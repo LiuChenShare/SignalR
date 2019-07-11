@@ -24,6 +24,7 @@ namespace SignalRChat_MVC
             model.Name = name;
             model.Message = string.Format("[{0}] {1} ", DateTime.Now.ToString(("HH:mm:ss")), message);
             Datas.ChatMessageData.Instance.EnqueueTask(model);
+            var aaaaaa = Context.ConnectionId;
             Clients.All.addNewMessageToPage(model.Name, model.Message);
         }
         
@@ -33,8 +34,7 @@ namespace SignalRChat_MVC
             // Update the shape model within our broadcaster
             Clients.AllExcept(clientModel.LastUpdatedBy).updateShape(clientModel);
         }
-
-
+        
     }
     public class ShapeModel
     {
