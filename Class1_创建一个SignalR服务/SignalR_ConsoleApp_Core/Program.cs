@@ -6,50 +6,25 @@ namespace SignalR_ConsoleApp_Core
 {
     class Program
     {
-        HubConnection connection;
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-
-        }
-
-        private void XXX()
-        {
-            connection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:53353/ChatHub")
-                .Build();
-
-            connection.Closed += async (error) =>
+            HubClient hubClient = new HubClient();
+            hubClient.XXX();
+            hubClient.connectButton();
+            hubClient.sendButton("TEST", "这是测试消息");
+            Console.WriteLine("按Enter键结束");
+            while (true)
             {
-                await Task.Delay(new Random().Next(0, 5) * 1000);
-                await connection.StartAsync();
-            };
+                var key = Console.ReadKey();
+                if(key.Key == ConsoleKey.Enter)
+                {
+                    break;
+                }
+            }
         }
 
         
-        private async void connectButton()
-        {
-            connection.On<string, string>("ReceiveMessage", (user, message) =>
-            {
-                ConsoleHelper.WriteInfoLine($"{user}: {message}");
-            });
-
-            await connection.StartAsync();
-        }
-
-        private async void sendButton(string user, string message)
-        {
-            try
-            {
-                await connection.InvokeAsync("SendMessage", user, message);
-            }
-            catch (Exception ex)
-            {
-                //ConsoleHelper.WriteErrorLine($"{user}: {message}");
-
-                ConsoleHelper.WriteErrorLine(ex.ToString());
-            }
-        }
     }
     
 }
