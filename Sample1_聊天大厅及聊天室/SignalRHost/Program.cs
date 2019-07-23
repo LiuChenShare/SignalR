@@ -20,6 +20,11 @@ namespace SignalRHost
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    var configuration = new ConfigurationBuilder().SetBasePath(Environment.CurrentDirectory)
+                                             .AddJsonFile("host.json")
+                                             .Build();
+                    //webBuilder.UseUrls("http://*:2233", "http://*:4455");
+                    webBuilder.UseConfiguration(configuration);
                     webBuilder.UseStartup<Startup>();
                 });
     }
