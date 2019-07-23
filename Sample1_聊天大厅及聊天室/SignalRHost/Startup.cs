@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SignalRHost.Hubs;
 
 namespace SignalRHost
 {
@@ -32,6 +33,7 @@ namespace SignalRHost
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSignalR();//Ìí¼ÓSignalR
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +65,7 @@ namespace SignalRHost
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<ChatHub>("/chatHub");//Ìí¼ÓchatHub
             });
         }
     }
