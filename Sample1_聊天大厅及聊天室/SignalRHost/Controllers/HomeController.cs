@@ -25,5 +25,16 @@ namespace SignalRHost.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        /// <summary>
+        /// 进入聊天室
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        public IActionResult ChatRoom(int roomId)
+        {
+            ViewData["RoomId"] = roomId;
+            return View();
+        }
     }
 }
