@@ -63,7 +63,7 @@ namespace SignalR_ConsoleApp
                 ConsoleHelper.WriteSuccessLine($"连接成功，当前在线客户端总数：{message.ToString()}");
             });
             //系统通知
-            connection.On<int>("ServerNotice", (message) =>
+            connection.On<string>("ServerNotice", (message) =>
             {
                 ConsoleHelper.WriteWarningLine($"系统通知：{message.ToString()}");
             });
