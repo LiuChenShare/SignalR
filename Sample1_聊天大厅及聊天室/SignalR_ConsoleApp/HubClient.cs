@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,8 +16,14 @@ namespace SignalR_ConsoleApp
 
         public HubClient()
         {
+            //var builder = new ConfigurationBuilder().AddJsonFile("JsonFile/class.json");
+            var builder = new ConfigurationBuilder().AddJsonFile("SignalRClient.json");
+            var config = builder.Build();
+            string url = config["SignalRUrl"];
+
             connection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:667/ChatHub")
+                //.WithUrl("http://localhost:667/ChatHub")
+                .WithUrl(url)
                 .Build();
 
             connection.Closed += async (error) =>
@@ -41,7 +48,14 @@ namespace SignalR_ConsoleApp
         {
             connection.On<string, string, int>("ReceiveMessage", (user, message, clientCount) =>
             {
-                ConsoleHelper.WriteSuccessLine($"{user}: {message}    当前在线【{clientCount}】");
+                if (Guid.Parse(user) == GuidId)
+                {
+                    ConsoleHelper.WriteSuccessLine($"我: {message}    当前在线【{clientCount}】");
+                }
+                else
+                {
+                    ConsoleHelper.WriteInfoLine($"{user}: {message}    当前在线【{clientCount}】");
+                }
             });
             //服务注册通知
             connection.On<int>("RegisterNotice", (message) =>

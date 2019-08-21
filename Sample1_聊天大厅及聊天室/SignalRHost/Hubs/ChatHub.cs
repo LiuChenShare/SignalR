@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using SignalRHost.Data;
+using SignalRHost.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,13 +27,21 @@ namespace SignalRHost.Hubs
             }
             await Clients.Caller.SendAsync("RegisterNotice", ClientData.Instance.ClientAddress.Count());
             await Clients.All.SendAsync("ServerNotice", "欢迎" + clientId.ToString() + "加入房间");
+            ConsoleHelper.WriteSuccessLine(clientId.ToString() + "加入房间");
         }
 
+        /// <summary>
+        /// 广播消息
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public async Task SendMessage(string user, string message)
         {
             //await Clients.All.SendAsync("ReceiveMessage", user, message);
             var clients = ClientData.Instance.ClientAddress.Values.ToArray();
             await Clients.Clients(clients).SendAsync("ReceiveMessage", user, message, ClientData.Instance.ClientAddress.Count());
+            ConsoleHelper.WriteInfoLine(string.Format("{0}say：{1}", user, message));
         }
 
         /// <summary>
@@ -60,6 +69,7 @@ namespace SignalRHost.Hubs
                 {
                     ClientData.Instance.ClientAddress.Remove(key, out string connectionId);
                     await Clients.All.SendAsync("ServerNotice", key.ToString() + "已离线");
+                    ConsoleHelper.WriteWarningLine(key.ToString() + "离开房间");
                 }
             }
             await base.OnDisconnectedAsync(exception);

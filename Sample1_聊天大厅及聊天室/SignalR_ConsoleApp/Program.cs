@@ -15,7 +15,7 @@ namespace SignalR_ConsoleApp
             {
                 while (true)
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(3000);
                     hubClient.SendMessage("大家好，我是" + hubClient.GuidId.ToString());
                 }
             });
