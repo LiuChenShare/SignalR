@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SignalRHost.Helper;
 
 namespace SignalRHost
 {
@@ -34,6 +35,7 @@ namespace SignalRHost
                         webBuilder.UseUrls("http://*:777", "http://*:778");
                     }
                     webBuilder.UseStartup<Startup>();
+                    ConsoleHelper.WriteSuccessLine("SignalRHost“—∆Ù∂Ø");
                 });
     }
 }

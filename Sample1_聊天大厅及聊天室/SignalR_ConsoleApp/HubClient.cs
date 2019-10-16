@@ -30,19 +30,41 @@ namespace SignalR_ConsoleApp
             {
                 ConsoleHelper.WriteErrorLine("客户端已离线，即将自动重连 ... ...");
                 await Task.Delay(new Random().Next(0, 5) * 1000);
-                ConsoleHelper.WriteErrorLine("启动自动重连 ... ...");
-                try
-                {
-                    await connection.StartAsync();
-                    Register();
-                }
-                catch (Exception ex)
-                {
-                    ConsoleHelper.WriteErrorLine(ex.ToString());
-                }
+                //ConsoleHelper.WriteErrorLine("启动自动重连 ... ...");
+                //try
+                //{
+                //    await connection.StartAsync();
+                //    Register();
+                //}
+                //catch (Exception ex)
+                //{
+                //    ConsoleHelper.WriteErrorLine(ex.ToString());
+                //}
+                Reconnection(1);
             };
         }
 
+        /// <summary>
+        /// 重连
+        /// </summary>
+        /// <param name="num">当前次数次数</param>
+        private async void Reconnection(int num)
+        {
+            ConsoleHelper.WriteInfoLine($"启动第{num}次自动重连 ... ...");
+            try
+            {
+                await connection.StartAsync();
+                Register();
+            }
+            catch (Exception ex)
+            {
+                num++;
+                ConsoleHelper.WriteErrorLine("重连失败：" + ex.Message);
+                ConsoleHelper.WriteWarningLine($"即将启动第{num}次重连 ... ...");
+                await Task.Delay(new Random().Next(0, 5) * 1000);
+                Reconnection(num);
+            }
+        }
 
         public async void connectButton()
         {
@@ -75,6 +97,8 @@ namespace SignalR_ConsoleApp
             catch (Exception ex)
             {
                 ConsoleHelper.WriteErrorLine(ex.ToString());
+
+                Reconnection(1);
             }
         }
 
