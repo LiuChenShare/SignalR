@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRHost", "SignalRHost\SignalRHost.csproj", "{D49FC9E2-CB1F-457A-B717-B9E4813C4EA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_ConsoleApp", "SignalR_ConsoleApp\SignalR_ConsoleApp.csproj", "{94072AD7-3AC3-4D40-B137-DF3B660D1BEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_ConsoleApp", "SignalR_ConsoleApp\SignalR_ConsoleApp.csproj", "{94072AD7-3AC3-4D40-B137-DF3B660D1BEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_WpfApp", "SignalR_WpfApp\SignalR_WpfApp.csproj", "{D786597B-95A7-4A12-8809-F639549EC38F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{94072AD7-3AC3-4D40-B137-DF3B660D1BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94072AD7-3AC3-4D40-B137-DF3B660D1BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94072AD7-3AC3-4D40-B137-DF3B660D1BEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D786597B-95A7-4A12-8809-F639549EC38F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D786597B-95A7-4A12-8809-F639549EC38F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D786597B-95A7-4A12-8809-F639549EC38F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D786597B-95A7-4A12-8809-F639549EC38F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
