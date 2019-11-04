@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SignalR_WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -19,7 +19,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <ListBox x:Name="listBox1"/>
+                    <ListBox x:Name="listBox1" Background="Gray"/>
 
                 </Grid>
                 <Grid Grid.Row="1">
@@ -27,7 +27,7 @@
                         <ColumnDefinition Width="7*"/>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBox Text="TextBox" TextWrapping="Wrap" VerticalContentAlignment="Center" FontSize="20" />
+                    <TextBox x:Name="testBox1" Text="请输入发送内容" TextWrapping="Wrap" VerticalContentAlignment="Center" FontSize="20" />
                     <Button Content="发送" Grid.Column="1" Click="Button_Click" />
                 </Grid>
             </Grid>

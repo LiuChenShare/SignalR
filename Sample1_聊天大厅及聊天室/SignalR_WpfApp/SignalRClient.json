@@ -1,0 +1,4 @@
+{
+  "SignalRUrl": "http://10.5.23.113:667/ChatHub",
+  "SignalRUrl2": "http://localhost:667/ChatHub"
+}
