@@ -7,12 +7,12 @@ namespace ChatRoom.Models
     /// </summary>
     public class ClientInfoModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 
         public string AddressId { get; set; }
 
-        public int GroupId { get; set; }
+        public string GroupId { get; set; }
     }
 }

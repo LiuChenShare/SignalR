@@ -47,11 +47,22 @@ namespace SignalRHost.Datas
         /// </summary>
         public List<AccountInfo> UserList = new List<AccountInfo>
         {
-            new AccountInfo{ Id = 1, Name = "村长", Account = "cunzhang", Password = "123456" },
-            new AccountInfo{ Id = 2, Name = "喜羊羊", Account = "xiyangyang", Password = "123456" },
-            new AccountInfo{ Id = 3, Name = "懒羊羊", Account = "lanyangyang", Password = "123456" },
-            new AccountInfo{ Id = 4, Name = "沸羊羊", Account = "feiyangyang", Password = "123456" },
-            new AccountInfo{ Id = 5, Name = "美羊羊", Account = "meiyangyang", Password = "123456" },
+            new AccountInfo{ Id = "1", Name = "村长", Account = "cunzhang", Password = "123456" },
+            new AccountInfo{ Id = "2", Name = "喜羊羊", Account = "xiyangyang", Password = "123456" },
+            new AccountInfo{ Id = "3", Name = "懒羊羊", Account = "lanyangyang", Password = "123456" },
+            new AccountInfo{ Id = "4", Name = "沸羊羊", Account = "feiyangyang", Password = "123456" },
+            new AccountInfo{ Id = "5", Name = "美羊羊", Account = "meiyangyang", Password = "123456" },
+        };
+
+        /// <summary>
+        /// 已注册房间
+        /// </summary>
+        public List<RoomInfo> RoomList = new List<RoomInfo>
+        {
+            new RoomInfo{ Id = "1001", Name = "吊炸天厅" },
+            new RoomInfo{ Id = "1002", Name = "纸醉金迷厅" },
+            new RoomInfo{ Id = "1003", Name = "澳门赌场厅" },
+            new RoomInfo{ Id = "1004", Name = "青青草原厅" },
         };
     }
 }

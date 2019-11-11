@@ -5,9 +5,9 @@ using System.Text;
 namespace ChatRoom.Models.Entiy
 {
     /// <summary>
-    /// 用户账号信息
+    /// 房间信息
     /// </summary>
-    public class AccountInfo
+    public class RoomInfo
     {
         /// <summary>
         /// Id
@@ -15,18 +15,8 @@ namespace ChatRoom.Models.Entiy
         public string Id { get; set; }
 
         /// <summary>
-        /// 昵称
+        /// 房间名
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// 账号
-        /// </summary>
-        public string Account { get; set; }
-
-        /// <summary>
-        /// 密码
-        /// </summary>
-        public string Password { get; set; }
     }
 }
