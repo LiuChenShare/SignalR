@@ -5,6 +5,16 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <div class="jumbotron" style="text-align:center">
+        <div id="loginView">
+            账号： <input type="text" name="Account" id="account" /> <br /><br />
+            密码： <input type="text" name="Password" id="password" /> <br /><br />
+            <input type="button" id="login" onclick="login()" value="登录" />
+        </div>
+        <h2 id="userTitle" style="text-align:center; display:none">暂未登录</h2>
+    </div>
+
     <div class="container">
         <div class="row">&nbsp;</div>
         <div class="row">
@@ -35,3 +45,62 @@
 </div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>
+
+
+<!--新登录-->
+<script>
+    function login() {
+        debugger;
+        var account = $("#account").val();
+        var password = $("#password").val();
+        if (account == "" || account == null) {
+            alert("请输入账号");
+            return false;
+        }
+        if (password == null || password == "") {
+            alert("请输入密码");
+            return false;
+        }
+        //$.ajax({
+        //    url: "/Home/Login",//需要提交到的地址
+        //    type: "POST", //提交的类型 POST/GET
+        //    data: { account: account, password: password },  //提交的参数
+        //    success: function (data) {
+        //        //提交成功之后的回调参数
+        //        if (data.success) {
+        //            debugger;
+        //            window.location.replace("/Home/Default");
+        //        }
+        //        else {
+        //            alert(data.Messages);
+        //        }
+        //    }
+        //})
+        $.ajax({
+            url: "/Home/Login?account="+account+"&password="+password,
+            type: "GET", //提交的类型 POST/GET
+            success: function (data) {
+                //提交成功之后的回调参数
+                if (data.success) {
+                    debugger;
+                    //window.location.replace("/Home/Default");
+                    $("#userTitle").text("Hello world!  " + data.data.name);
+                    $("#loginView").css('display','none');
+                    $("#userTitle").css('display','block');
+                }
+                else {
+                    alert(data.Messages);
+                }
+            }
+        })
+    }
+
+    function BindEnter(obj) {
+        //使用document.getElementById获取到按钮对象
+        var button = document.getElementById('login');
+        if (obj.keyCode == 13) {
+            button.click();
+            obj.returnValue = false;
+        }
+    }
+</script>
